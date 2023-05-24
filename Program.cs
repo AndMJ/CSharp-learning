@@ -1,8 +1,52 @@
 ﻿using System;
 
-class Program {
+namespace leaning
+{
+    class Person
+    {
+        private Guid id;
+        private string name;
+        private List<Product> boughtProducts = new List<Product>();
 
-    static void Main(string[] args){
-        Console.WriteLine("Hello!");
+        public Person(string name, List<Product> products)
+        {
+            this.id = Guid.NewGuid();
+            this.name = name;
+
+            foreach (Product product in products) {
+                this.boughtProducts.Add(product);
+            }
+        }
+
+        //Getters
+        public Guid getID(){
+            return this.id;
+        }
+
+        public string getName(){
+            return this.name;
+        }
+
+        //Setters
+        public void setName(string name){
+            this.name = name;
+        }
+
+        //Custom ToString()
+        public override string ToString()
+        {
+            string prods = string.Join(",", this.boughtProducts);
+            return "id: " + this.getID() + ", name: " + this.getName() + ", Products: [" + prods + "]";
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        { 
+            Person p1 = new Person("Diogo Mourinho", { new Product("WD40", "Lubrificar", 14.99) });
+            Console.WriteLine(p1.ToString());
+        }
     }
 }
+
