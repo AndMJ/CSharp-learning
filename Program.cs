@@ -44,7 +44,7 @@ namespace leaning
     {
         static void Main(string[] args)
         { 
-            Person p1 = new Person("Diogo Mourinho", new List<Product> { new Product("WD40", "Lubrificar", 14.99), new Product("Cuecas", "porque as outras estao cagadas", 5.10) });
+            Person p1 = new Person("Diogo Mourinho", new List<Product> { new Product("WD40", "Lubrificar", 7.99), new Product("3M Massa polir 1Kg", "massa polir", 15.10) });
             Console.WriteLine(p1.ToString());
         }
     }
